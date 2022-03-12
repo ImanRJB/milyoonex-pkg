@@ -1,0 +1,10 @@
+<?php
+
+namespace App\Repositories;
+
+use Milyoonex\Repositories\BaseRepository;
+
+class {{ class }} extends BaseRepository
+{
+    //
+}

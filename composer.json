@@ -1,0 +1,37 @@
+{
+    "name": "imanrjb/milyoonex-pkg",
+    "description": "Microservice SDK for milyoonex lumen projects",
+    "keywords": [],
+    "license": "MIT",
+    "type": "library",
+    "require": {
+        "anik/form-request": "^4.2",
+        "fruitcake/laravel-cors": "^2.0",
+        "predis/predis": "^1.1",
+        "illuminate/redis": "^9.0",
+        "imanrj/lumen-horizon": "^1.0",
+        "imanrjb/passport-auth": "^1.0",
+        "swooletw/laravel-swoole": "^2.9"
+    },
+    "authors": [
+        {
+            "name": "Milyoona",
+            "email": "hi@milyoona.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Milyoonex\\": "app/"
+        },
+        "files": [
+            "helper/functions.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Milyoonex\\Providers\\MilyoonexSdkServiceProvider"
+            ]
+        }
+    }
+}
