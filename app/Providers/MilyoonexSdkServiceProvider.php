@@ -11,8 +11,8 @@ class MilyoonexSdkServiceProvider extends ServiceProvider
     public function register()
     {
         //Proxies
-        BaseRepositoryFacade::shouldProxyTo(\Milyoonex\Repositories\BaseRepository::class);
-        NotificationRepositoryFacade::shouldProxyTo(\Milyoonex\Repositories\NotificationRepository::class);
+        \Milyoonex\Facades\BaseRepositoryFacade::shouldProxyTo(\Milyoonex\Repositories\BaseRepository::class);
+        \Milyoonex\Facades\NotificationRepositoryFacade::shouldProxyTo(\Milyoonex\Repositories\NotificationRepository::class);
 
         // Register depends packages service providers just for lumen
         if (! $this->app instanceof \Illuminate\Foundation\Application) {

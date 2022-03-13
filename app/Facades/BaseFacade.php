@@ -1,6 +1,6 @@
 <?php
 
-namespace Milyoonex\App\Facades;
+namespace Milyoonex\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
