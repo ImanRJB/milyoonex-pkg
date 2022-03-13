@@ -100,7 +100,7 @@ return [
     */
     'providers' => [
         Illuminate\Pagination\PaginationServiceProvider::class,
-        Milyoonex\App\Providers\PreloadSwooleServiceProvider::class,
+        Milyoonex\Providers\PreloadSwooleServiceProvider::class,
     ],
 
     /*

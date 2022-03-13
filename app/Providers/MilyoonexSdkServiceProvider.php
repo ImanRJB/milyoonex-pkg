@@ -20,8 +20,13 @@ class MilyoonexSdkServiceProvider extends ServiceProvider
             $this->app->register(\Anik\Form\FormRequestServiceProvider::class);
             $this->app->register(\Fruitcake\Cors\CorsServiceProvider::class);
             $this->app->register(\Illuminate\Redis\RedisServiceProvider::class);
-            $this->app->register(\SwooleTW\Http\LumenServiceProvider::class);
+            //$this->app->register(\SwooleTW\Http\LumenServiceProvider::class);
             $this->app->register(\Laravel\Horizon\HorizonServiceProvider::class);
+        }
+
+        // Register Commands
+        if ($this->app->runningInConsole()) {
+            $this->commands(['\Milyoonex\Console\Commands\MakeRepository']);
         }
 
         //Services
@@ -48,9 +53,9 @@ class MilyoonexSdkServiceProvider extends ServiceProvider
         if (file_exists(__DIR__ . '/../../config/fee.php')) {
             $this->mergeConfigFrom(__DIR__ . '/../../config/fee.php', 'fee');
         }
-        if (file_exists(__DIR__ . '/../../config/swoole_http.php')) {
-            $this->mergeConfigFrom(__DIR__ . '/../../config/swoole_http.php', 'swoole_http');
-        }
+        //if (file_exists(__DIR__ . '/../../config/swoole_http.php')) {
+        //    $this->mergeConfigFrom(__DIR__ . '/../../config/swoole_http.php', 'swoole_http');
+        //}
 
         // Register Middlewares
         if ($this->app instanceof \Illuminate\Foundation\Application) {

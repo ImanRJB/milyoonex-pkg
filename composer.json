@@ -10,8 +10,7 @@
         "predis/predis": "^1.1",
         "illuminate/redis": "^9.0",
         "imanrj/lumen-horizon": "^1.0",
-        "imanrjb/passport-auth": "^1.0",
-        "swooletw/laravel-swoole": "^2.9"
+        "imanrjb/passport-auth": "^1.0"
     },
     "authors": [
         {
