@@ -1,6 +1,6 @@
 <?php
 
-namespace Milyoomex\Enum;
+namespace Milyoonex\Enum;
 
 enum User2faEnum: string
 {
