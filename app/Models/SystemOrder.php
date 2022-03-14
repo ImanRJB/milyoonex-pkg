@@ -4,8 +4,8 @@ namespace Milyoonex\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Milyoomex\Enum\SystemOrderSideEnum;
-use Milyoomex\Enum\SystemOrderTypeEnum;
+use Milyoonex\Enum\SystemOrderSideEnum;
+use Milyoonex\Enum\SystemOrderTypeEnum;
 use App\Models\Market;
 use App\Models\Order;
 use App\Models\Wallet;

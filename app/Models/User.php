@@ -10,8 +10,8 @@ use Illuminate\Auth\Authenticatable;
 use Laravel\Lumen\Auth\Authorizable;
 use Laravel\Passport\HasApiTokens;
 // end passport-auth traits
-use Milyoomex\Enum\User2faEnum;
-use Milyoomex\Enum\UserGenderEnum;
+use Milyoonex\Enum\User2faEnum;
+use Milyoonex\Enum\UserGenderEnum;
 use App\Models\UserGroup;
 use App\Models\Wallet;
 use App\Models\CreditCard;
