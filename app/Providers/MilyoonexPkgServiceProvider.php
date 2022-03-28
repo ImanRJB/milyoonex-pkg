@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use App\Models\Notification;
 use Milyoonex\Observers\NotificationObserver;
 
-class MilyoonexSdkServiceProvider extends ServiceProvider
+class MilyoonexPkgServiceProvider extends ServiceProvider
 {
     public function register()
     {

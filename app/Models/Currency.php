@@ -4,7 +4,7 @@ namespace Milyoonex\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Milyoomex\Enum\CurrencyTypeEnum;
+use Milyoonex\Enum\CurrencyTypeEnum;
 use App\Models\Wallet;
 use App\Models\Market;
 use App\Models\Network;

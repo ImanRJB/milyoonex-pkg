@@ -4,7 +4,7 @@ namespace Milyoonex\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Milyoomex\Enum\IrtDepositStatusEnum;
+use Milyoonex\Enum\IrtDepositStatusEnum;
 use App\Models\Wallet;
 
 class IrtDeposit extends Model

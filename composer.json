@@ -1,6 +1,6 @@
 {
     "name": "imanrjb/milyoonex-pkg",
-    "description": "Microservice SDK for milyoonex lumen projects",
+    "description": "Microservice Package for milyoonex lumen projects",
     "keywords": [],
     "license": "MIT",
     "type": "library",
@@ -29,7 +29,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Milyoonex\\Providers\\MilyoonexSdkServiceProvider"
+                "Milyoonex\\Providers\\MilyoonexPkgServiceProvider"
             ]
         }
     }

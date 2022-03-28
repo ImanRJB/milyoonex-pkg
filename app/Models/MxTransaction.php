@@ -4,7 +4,7 @@ namespace Milyoonex\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Milyoomex\Enum\MxTransactionTypeEnum;
+use Milyoonex\Enum\MxTransactionTypeEnum;
 use App\Models\Currency;
 
 class MxTransaction extends Model
