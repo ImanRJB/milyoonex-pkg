@@ -12,6 +12,7 @@ use App\Models\MxTransaction;
 use App\Models\OrderMaker;
 use App\Models\OrderTaker;
 use App\Models\ReferralReward;
+use App\Models\WithdrawTrustedAddress;
 
 class Currency extends Model
 {
@@ -77,5 +78,10 @@ class Currency extends Model
     public function referralReward()
     {
         return $this->hasMany(ReferralReward::class, 'currency_id');
+    }
+
+    public function withdrawTrustedAddreses()
+    {
+        return $this->hasMany(WithdrawTrustedAddress::class);
     }
 }

@@ -21,6 +21,7 @@ use App\Models\ReferralCode;
 use App\Models\Address;
 use App\Models\Alert;
 use App\Models\ReferralReward;
+use App\Models\WithdrawTrustedAddress;
 
 class User extends Model
 {
@@ -101,6 +102,11 @@ class User extends Model
     public function refferalUserReward()
     {
         return $this->hasMany(ReferralReward::class, 'referral_user_id');
+    }
+
+    public function withdrawTrustedAddreses()
+    {
+        return $this->hasMany(WithdrawTrustedAddress::class);
     }
 
     // start passport-auth methods

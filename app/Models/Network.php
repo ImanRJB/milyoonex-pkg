@@ -8,6 +8,7 @@ use App\Models\Currency;
 use App\Models\AddressType;
 use App\Models\Deposit;
 use App\Models\Withdrawal;
+use App\Models\WithdrawTrustedAddress;
 
 class Network extends Model
 {
@@ -46,5 +47,10 @@ class Network extends Model
     public function withdrawals()
     {
         return $this->hasMany(Withdrawal::class);
+    }
+
+    public function withdrawTrustedAddreses()
+    {
+        return $this->hasMany(WithdrawTrustedAddress::class);
     }
 }
