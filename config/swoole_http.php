@@ -101,6 +101,7 @@ return [
     'providers' => [
         Illuminate\Pagination\PaginationServiceProvider::class,
         Milyoonex\Providers\PreloadSwooleServiceProvider::class,
+        Laravel\Passport\PassportServiceProvider::class
     ],
 
     /*
