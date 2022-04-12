@@ -23,7 +23,6 @@ class MilyoonexPkgServiceProvider extends ServiceProvider
             $this->app->register(\Illuminate\Redis\RedisServiceProvider::class);
             $this->app->register(\SwooleTW\Http\LumenServiceProvider::class);
             $this->app->register(\Laravel\Horizon\HorizonServiceProvider::class);
-            $this->app->register(\Milyoonex\Providers\PreloadSwooleServiceProvider::class);
         }
 
         // Register Commands
@@ -85,5 +84,8 @@ class MilyoonexPkgServiceProvider extends ServiceProvider
         if (file_exists(base_path('app/Models/') . 'Notification.php')) {
             Notification::observe(NotificationObserver::class);
         }
+
+        // Files, e.g validations and ..
+        require(__DIR__ . '/../../helper/validations.php');
     }
 }
