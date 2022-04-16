@@ -36,7 +36,7 @@ class Order extends Model
         'order_transactions',
         'remain', 'remain_value',
         'market_name', 'market_name_fa',
-        'side', 'is_market', 'status', 'touch'
+        'is_market', 'touch'
     ];
 
     protected $casts = [
