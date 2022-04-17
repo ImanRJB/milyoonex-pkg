@@ -23,6 +23,8 @@ use App\Models\Alert;
 use App\Models\ReferralReward;
 use App\Models\WithdrawTrustedAddress;
 
+use function PHPUnit\Framework\isNull;
+
 class User extends Model
 {
     use SoftDeletes, HasApiTokens, Authenticatable, Authorizable;
@@ -47,6 +49,11 @@ class User extends Model
     protected $casts = [
         'gender' => UserGenderEnum::class,
         '2fa'    => User2faEnum::class,
+    ];
+
+    protected $appends = [
+        'mobile_mask',
+        'email_mask'
     ];
 
     public function userGroup()
@@ -122,4 +129,37 @@ class User extends Model
         return Hash::check($password, $this->password);
     }
     // end passport-auth methods
+
+    public function getMobileMaskAttribute()
+    {
+        if(! empty($mobile)) {
+            return substr($this->mobile, 0, 4)
+            . str_repeat('*', strlen($this->mobile) - 8)
+            . substr($this->mobile, -4);
+        }
+        return null;
+    }
+
+    public function getEmailMaskAttribute()
+    {
+        if(! empty($this->email)) {
+            $explodedMail = explode('@', $this->email);
+            
+            if(strlen($explodedMail[0]) > 4) {
+                return substr($explodedMail[0], 0, 2)
+                . str_repeat('*', strlen($explodedMail[0]) - 4)
+                . substr($explodedMail[0], -2)
+                . '@'
+                . $explodedMail[1];
+            
+            } else {
+                return substr($explodedMail[0], 0, 1)
+                . str_repeat('*', strlen($explodedMail[0]) - 2)
+                . substr($explodedMail[0], -1)
+                . '@'
+                . $explodedMail[1];
+            }
+        }
+        return null;
+    }
 }

@@ -111,7 +111,7 @@ return array(
         'father_name' => 'نام پدر',
         'address' => 'آدرس',
         'national_code' => 'کد ملی',
-        'label' => 'لیبل',
+        'label' => 'برچسب',
         'birth_date' => 'تاریخ تولد',
         'gender' => 'جنسیت',
         'phone' => 'تلفن ثابت',
@@ -125,6 +125,8 @@ return array(
         'ip' => 'آی‌پی',
         'logo' => 'لوگو',
         'title' => 'عنوان',
-        'card' => 'کارت'
+        'card' => 'کارت',
+        'username' => 'نام کاربری',
+        'password' => 'کلمه عبور'
     ]
 );
