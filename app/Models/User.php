@@ -132,7 +132,7 @@ class User extends Model
 
     public function getMobileMaskAttribute()
     {
-        if(! empty($mobile)) {
+        if(! empty($this->mobile)) {
             return substr($this->mobile, 0, 4)
             . str_repeat('*', strlen($this->mobile) - 8)
             . substr($this->mobile, -4);
