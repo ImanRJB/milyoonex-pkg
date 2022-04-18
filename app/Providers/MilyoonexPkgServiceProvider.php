@@ -12,6 +12,7 @@ class MilyoonexPkgServiceProvider extends ServiceProvider
     {
         //Proxies
         \Milyoonex\Facades\BaseRepositoryFacade::shouldProxyTo(\Milyoonex\Repositories\BaseRepository::class);
+        \Milyoonex\Facades\MongoBaseRepositoryFacade::shouldProxyTo(\Milyoonex\Repositories\MongoBaseRepository::class);
         \Milyoonex\Facades\NotificationRepositoryFacade::shouldProxyTo(\Milyoonex\Repositories\NotificationRepository::class);
 
         // Register depends packages service providers just for lumen
