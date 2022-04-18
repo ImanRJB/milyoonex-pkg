@@ -13,16 +13,16 @@ class MongoBaseRepository
         return DB::connection('mongodb')->table($table)->select($selection)->where($where)->first();
     }
 
-    public function getRecords($table, $where = [], $selection = ['*'])
+    public function getRecords($table, $where = [], $orderBy = 'created_at',$selection = ['*'])
     {
         $selection = $selection == [] ? ['*'] : $selection;
-        return DB::connection('mongodb')->table($table)->select($selection)->where($where)->get();
+        return DB::connection('mongodb')->table($table)->select($selection)->where($where)->orderBy($orderBy)->get();
     }
 
-    public function getPaginate($table, $where = [], $selection = ['*'],$paginate=10)
+    public function getPaginate($table, $where = [], $orderBy = 'created_at',$selection = ['*'],$paginate=10)
     {
         $selection = $selection == [] ? ['*'] : $selection;
-        return DB::connection('mongodb')->table($table)->select($selection)->where($where)->paginate($paginate);
+        return DB::connection('mongodb')->table($table)->select($selection)->where($where)->orderBy($orderBy)->paginate($paginate);
     }
 
     public function storeRecord($table, $data)
