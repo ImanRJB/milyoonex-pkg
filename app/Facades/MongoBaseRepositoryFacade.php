@@ -5,12 +5,12 @@ namespace Milyoonex\Facades;
 /**
  * @class \Milyoonex\Facades\BaseRepositoryFacade
  *
- * @method static getRecord($model, $query, $selection = [], $relations = [])
- * @method static getRecords($model, $query = [], $selection = [], $relations = [])
- * @method static getPaginate($model, $query = [], $selection = [], $relations = [],$paginate=0)
- * @method static storeRecord($model, $data)
- * @method static updateRecord(\Illuminate\Database\Eloquent\Model $object, $data)
- * @method static deleteRecords($model, $data)
+ * @method static getRecord($table, $where = [], $selection = ['*'])
+ * @method static getRecords($table, $where = [], $selection = ['*'])
+ * @method static getPaginate($table, $where = [], $selection = ['*'],$paginate=10)
+ * @method static storeRecord($table, $data)
+ * @method static updateRecord($table, $where, $data)
+ * @method static deleteRecords($table, $where)
  *
  * @see \Milyoonex\Repositories\BaseRepository
  */

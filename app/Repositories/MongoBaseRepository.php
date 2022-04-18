@@ -35,7 +35,7 @@ class MongoBaseRepository
         return DB::connection('mongodb')->table($table)->where($where)->update($data);
     }
 
-    public function deleteRecords($table, $where, $data)
+    public function deleteRecords($table, $where)
     {
         return DB::connection('mongodb')->table($table)->where($where)->delete();
     }
