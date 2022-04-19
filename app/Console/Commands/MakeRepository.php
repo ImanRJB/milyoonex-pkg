@@ -12,7 +12,7 @@ class MakeRepository extends Command
      *
      * @var string
      */
-    protected $signature = 'make:repository {name}';
+    protected $signature = 'make:repository {--m|mongo} {name}';
 
     /**
      * The console command description.
@@ -53,25 +53,42 @@ class MakeRepository extends Command
     protected function getSingularClassName($name): string
     {
         $repositoryName = ucwords(Pluralizer::singular($name));
-        if(! str_contains($repositoryName, 'Repository')) {
-            $repositoryName = $repositoryName . 'Repository';
+
+        if($this->option('mongo')) {
+            if(! str_contains($repositoryName, 'MongoRepository')) {
+                $repositoryName = $repositoryName . 'MongoRepository';
+            }
+        } else {
+            if(! str_contains($repositoryName, 'Repository')) {
+                $repositoryName = $repositoryName . 'Repository';
+            }
         }
+
         return $repositoryName;
     }
 
     protected function getStubInformation(): array
     {
         $repositoryName = $this->getSingularClassName($this->argument('name'));
+    
         return [
-            __DIR__ . '/../../../stubs/repository.stub' => [
+            ($this->option('mongo')) 
+            ? __DIR__ . '/../../../stubs/mongo_repository.stub'
+            : __DIR__ . '/../../../stubs/mysql_repository.stub' 
+            => 
+            [
                 'variables' => ['class' => $repositoryName],
                 'path'      => base_path('app/Repositories/') . $repositoryName . '.php',
-                'stub'      => 'Repository'
+                'stub'      => ($this->option('mongo')) ? 'MongoRepository' : 'Repository'
             ],
-            __DIR__ . '/../../../stubs/facade.stub' => [
+            ($this->option('mongo')) 
+            ? __DIR__ . '/../../../stubs/mongo_facade.stub'
+            : __DIR__ . '/../../../stubs/mysql_facade.stub'  
+            => 
+            [
                 'variables' => ['class' => $repositoryName . 'Facade', 'see' => $repositoryName],
                 'path'      => base_path('app/Facades/') . $repositoryName . 'Facade.php',
-                'stub'      => 'Facade'
+                'stub'      => ($this->option('mongo')) ? 'MongoFacade' : 'Facade'
             ]
         ];
     }
@@ -79,7 +96,7 @@ class MakeRepository extends Command
     protected function getStubsWithData(): array|bool|string
     {
         $stubs = $this->getStubInformation();
-
+        //dd($stubs);
         $stubsWithData = [];
         $index = 0;
         foreach ($stubs as $stub => $data) {
