@@ -1,9 +1,11 @@
 <?php
 
-namespace Milyoonex\Facades;
+namespace App\Facades;
+
+use Milyoonex\Facades\BaseFacade;
 
 /**
- * @class \Milyoonex\Facades\{{ class }}
+ * @class \App\Facades\{{ class }}
  *
  * @method static getRecord($table, $where = [], $selection = ['*'])
  * @method static getRecords($table, $where = [], $orderBy = 'created_at', $selection = ['*'])
@@ -12,7 +14,7 @@ namespace Milyoonex\Facades;
  * @method static updateRecord($table, $where, $data)
  * @method static deleteRecords($table, $where)
  *
- * @see \Milyoonex\Repositories\{{ see }}
+ * @see \App\Repositories\{{ see }}
  */
 
 class {{ class }} extends BaseFacade
