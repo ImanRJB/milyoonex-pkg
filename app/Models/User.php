@@ -53,7 +53,9 @@ class User extends Model
 
     protected $appends = [
         'mobile_mask',
-        'email_mask'
+        'email_mask',
+        'phone_mask',
+        'ga_secret_status'
     ];
 
     public function userGroup()
@@ -161,5 +163,23 @@ class User extends Model
             }
         }
         return null;
+    }
+
+    public function getPhoneMaskAttribute()
+    {
+        if(! empty($this->phone)) {
+            return substr($this->phone, 0, 3)
+            . str_repeat('*', strlen($this->phone) - 7)
+            . substr($this->phone, -4);
+        }
+        return null;
+    }
+
+    public function getGaSecretStatusAttribute()
+    {
+        if(! is_null($this->ga_secret)) {
+            return true;
+        }
+        return false;
     }
 }

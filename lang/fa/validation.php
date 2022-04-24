@@ -126,7 +126,27 @@ return array(
         'logo' => 'لوگو',
         'title' => 'عنوان',
         'card' => 'کارت',
+
         'username' => 'نام کاربری',
-        'password' => 'کلمه عبور'
+        'password' => 'کلمه عبور',
+        'referral_code' => 'کد معرف',
+        'email_code' => 'کد تایید ایمیل',
+        'type' => 'نوع',
+        'code' => 'کد تایید',
+        'refresh_token' => 'توکن تازه‌سازی',
+        'ga_code' => 'کد تایید گوگل',
+        'mobile_code' => 'کد تایید موبایل',
+        'theme' => 'قالب صفحه',
+        'anti_fishing_word' => 'کلمه آنتی فیشینگ',
+        'notification_by_email' => 'اطلاع رسانی با ایمیل',
+        'submit_order_approve' => 'ارسال تایید سفارش',
+        'cancel_order_approve' => 'ارسال تایید لغو سفارش',
+        'new_password' => 'کلمه عبور جدید',
+        'first_name' => 'نام',
+        'id_card' => 'تصویر کارت ملی',
+        'verification_image' => 'تصویر تایید',
+        'percent' => 'درصد',
+        'amount' => 'مقدار',
+
     ]
 );
