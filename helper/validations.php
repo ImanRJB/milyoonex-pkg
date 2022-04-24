@@ -350,3 +350,42 @@ Validator::extend('persian_number', function ($attribute, $character, $parameter
 
     return $status;
 }, 'فقط اعداد فارسی مجاز می‌باشد.');
+
+/**
+ *
+ * Check password strength (has number, has uppercase, has lowercase, has specialChars)
+ *
+ * @param $attribute
+ * @param $character
+ * @param $parameters
+ * @return bool
+ */
+Validator::extend('password_strength', function ($attribute, $value, $parameters, $validator) {
+    $number = preg_match("/[0-9]/", $value);
+    $uppercase = preg_match("/[A-Z]/", $value);
+    $lowercase = preg_match("/[a-z]/", $value);
+    $specialChars = preg_match("/[^\w]/", $value);
+    if(!strlen($value) || strlen($value) < 8 
+        || !$number || !$uppercase 
+        || !$lowercase || !$specialChars
+        ) {
+        return false;
+    }
+    return true;
+}, '.کلمه عبور باید حداقل ۸ حرف و دارای اعداد، حرف بزرگ و کوچک و نمادهای خاص باشد');
+
+/**
+ *
+ * Check password score that greater than 50 score
+ *
+ * @param $attribute
+ * @param $character
+ * @param $parameters
+ * @return bool
+ */
+Validator::extend('password_score', function ($attribute, $value, $parameters, $validator) {
+    if(passwordScore($value) < 50) {
+        return false;
+    }
+    return true;
+}, '.کلمه عبور شما به اندازه کافی قوی نمی‌باشد');
