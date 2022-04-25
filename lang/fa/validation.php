@@ -129,6 +129,7 @@ return array(
 
         'username' => 'نام کاربری',
         'password' => 'کلمه عبور',
+        'password_confirmation' => 'تکرار کلمه عبور',
         'referral_code' => 'کد معرف',
         'email_code' => 'کد تایید ایمیل',
         'type' => 'نوع',
