@@ -55,7 +55,7 @@ class User extends Model
         'mobile_mask',
         'email_mask',
         'phone_mask',
-        'ga_secret_status'
+        'totp_secret_status'
     ];
 
     public function userGroup()
@@ -175,9 +175,9 @@ class User extends Model
         return null;
     }
 
-    public function getGaSecretStatusAttribute()
+    public function getTotpSecretStatusAttribute()
     {
-        if(! is_null($this->ga_secret)) {
+        if(! is_null($this->totp_secret)) {
             return true;
         }
         return false;
