@@ -148,6 +148,6 @@ return array(
         'verification_image' => 'تصویر تایید',
         'percent' => 'درصد',
         'amount' => 'مقدار',
-
+        'via' => 'نوع OTP',
     ]
 );
