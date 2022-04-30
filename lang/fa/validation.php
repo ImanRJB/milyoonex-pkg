@@ -149,5 +149,6 @@ return array(
         'percent' => 'درصد',
         'amount' => 'مقدار',
         'via' => 'نوع OTP',
+        'token_id' => 'شناسه توکن'
     ]
 );
