@@ -12,6 +12,8 @@ use App\Models\Deposit;
 use App\Models\IrtDeposit;
 use App\Models\Withdrawal;
 use App\Models\IrtWithdrawal;
+use Illuminate\Support\Facades\Log;
+use Milyoonex\Facades\MongoBaseRepositoryFacade;
 
 class Wallet extends Model
 {
@@ -84,9 +86,46 @@ class Wallet extends Model
         return $this->hasMany(SystemOrder::class, 'base_wallet_id')->where('side', '=', 'buy');
     }
 
+    public function getMarketNameAttribute()
+    {
+        return $this->market->name;
+    }
+
+    public function getBuyFreezeAttribute()
+    {
+        $freeze = 0;
+        foreach ($this->makeHidden('buyOrders')->buyOrders as $buyOrder) {
+            $buyTable = str_replace(' ', '', strtolower(str_replace('/', '_', $buyOrder->market_name))) . '_order_buy';
+
+            $buyOrders = MongoBaseRepositoryFacade::getRecords($buyTable, ['order_id' => $buyOrder->id]);
+            foreach ($buyOrders as $buyOrder) {
+                $remain = is_null($buyOrder['limit']) ? $buyOrder['value_remain'] : mulAmount($buyOrder['limit'], $buyOrder['remain']);
+                $freeze = addAmount($freeze, $remain);
+
+            }
+        }
+        return (string)$freeze;
+    }
+
+    public function getSellFreezeAttribute()
+    {
+        $freeze = 0;
+
+        foreach ($this->makeHidden('sellOrders')->sellOrders as $sellOrder) {
+            $sellTable = str_replace(' ', '', strtolower(str_replace('/', '_', $sellOrder->market_name))) . '_order_sell';
+            $buyOrders = MongoBaseRepositoryFacade::getRecords($sellTable, ['order_id' => $sellOrder->id]);
+            $freeze = addAmount($freeze, $buyOrders->sum('value_remain'));
+
+        }
+
+
+        return (string)$freeze;
+    }
+
     public function getTotalFreezeAttribute()
     {
-        // TODO::calculate freeze balance from mongo
-        return addAmount( (string) $this->sell_freeze, (string) $this->buy_freeze);
+        return addAmount((string)$this->sell_freeze, (string)$this->buy_freeze);
     }
+
+
 }

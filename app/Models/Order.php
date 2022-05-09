@@ -20,7 +20,7 @@ class Order extends Model
     protected $table = 'orders';
 
     protected $hidden = [
-        'orderMakers', 'orderTakers'
+        'orderMakers', 'orderTakers', 'wallet', 'base_wallet'
     ];
 
     protected $guarded = [
@@ -40,7 +40,7 @@ class Order extends Model
     ];
 
     protected $casts = [
-        'side'   => OrderSideEnum::class,
+        'side' => OrderSideEnum::class,
         'status' => OrderStatusEnum::class,
     ];
 
@@ -105,7 +105,7 @@ class Order extends Model
 
     public function getRemainAttribute()
     {
-        if(is_null($this->amount) || is_null($this->execution_amount)) {
+        if (is_null($this->amount) || is_null($this->execution_amount)) {
             return null;
         }
         return subAmount($this->amount, $this->execution_amount);
@@ -113,7 +113,7 @@ class Order extends Model
 
     public function getRemainValueAttribute()
     {
-        if(is_null($this->remain) || is_null($this->limit)) {
+        if (is_null($this->remain) || is_null($this->limit)) {
             return null;
         }
         return mulAmount($this->remain, $this->limit);
