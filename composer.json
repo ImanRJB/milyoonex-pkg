@@ -14,8 +14,7 @@
         "imanrj/lumen-horizon": "^1.0",
         "imanrjb/passport-auth": "^1.0",
         "swooletw/laravel-swoole": "^2.12",
-        "symfony/polyfill": "^1.25",
-        "almas-exchange/exchange-model": "^1.0"
+        "symfony/polyfill": "^1.25"
     },
     "authors": [
         {
