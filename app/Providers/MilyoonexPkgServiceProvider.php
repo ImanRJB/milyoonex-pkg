@@ -17,7 +17,6 @@ class MilyoonexPkgServiceProvider extends ServiceProvider
 
         // Register depends packages service providers just for lumen
         if (! $this->app instanceof \Illuminate\Foundation\Application) {
-            $this->app->register(\ExchangeModel\Providers\ExchangeModelServiceProvider::class);
             $this->app->register(\Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
             $this->app->register(\PassportAuth\PassportAuthServiceProvider::class);
             $this->app->register(\Anik\Form\FormRequestServiceProvider::class);
@@ -25,6 +24,7 @@ class MilyoonexPkgServiceProvider extends ServiceProvider
             $this->app->register(\Illuminate\Redis\RedisServiceProvider::class);
             $this->app->register(\SwooleTW\Http\LumenServiceProvider::class);
             $this->app->register(\Laravel\Horizon\HorizonServiceProvider::class);
+            $this->app->register(\ExchangeModel\Providers\ExchangeModelServiceProvider::class);
         }
 
         // Register Commands
@@ -52,7 +52,7 @@ class MilyoonexPkgServiceProvider extends ServiceProvider
             $this->mergeConfigFrom($this->app->basePath() . '/config/cors.php', 'cors');
         }
         if (file_exists($this->app->basePath() . '/config/exchange-model.php')) {
-            $this->mergeConfigFrom($this->app->basePath() . '/config/exchange-model.php', 'exchange-model');
+            $this->mergeConfigFrom($this->app->basePath() . '/config/exchange-model.php', 'model');
         }
         if (file_exists($this->app->basePath() . '/config/horizon.php')) {
             $this->mergeConfigFrom($this->app->basePath() . '/config/horizon.php', 'horizon');
