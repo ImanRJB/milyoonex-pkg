@@ -17,7 +17,7 @@ class MilyoonexPkgServiceProvider extends ServiceProvider
 
         // Register depends packages service providers just for lumen
         if (! $this->app instanceof \Illuminate\Foundation\Application) {
-            $app->register(ExchangeModel\Providers\ExchangeModelServiceProvider::class);
+            $this->app->register(\ExchangeModel\Providers\ExchangeModelServiceProvider::class);
             $this->app->register(\Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
             $this->app->register(\PassportAuth\PassportAuthServiceProvider::class);
             $this->app->register(\Anik\Form\FormRequestServiceProvider::class);
