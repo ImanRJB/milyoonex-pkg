@@ -5,16 +5,15 @@
     "license": "MIT",
     "type": "library",
     "require": {
-        "ext-swoole": "^4.8",
         "anik/form-request": "^4.2",
         "flipbox/lumen-generator": "^9.1",
         "fruitcake/laravel-cors": "^2.0",
         "predis/predis": "^2.0",
         "illuminate/redis": "^9.0",
-        "imanrj/lumen-horizon": "^1.0",
+        "imanrjb/lumen-horizon": "^1.0",
         "imanrjb/passport-auth": "^1.0",
         "swooletw/laravel-swoole": "^2.12",
-        "symfony/polyfill": "^1.25"
+        "almas-exchange/exchange-model": "^1.0"
     },
     "authors": [
         {

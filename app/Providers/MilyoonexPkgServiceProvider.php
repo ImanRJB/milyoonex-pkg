@@ -24,7 +24,7 @@ class MilyoonexPkgServiceProvider extends ServiceProvider
             $this->app->register(\Illuminate\Redis\RedisServiceProvider::class);
             $this->app->register(\SwooleTW\Http\LumenServiceProvider::class);
             $this->app->register(\Laravel\Horizon\HorizonServiceProvider::class);
-            //$this->app->register(\ExchangeModel\Providers\ExchangeModelServiceProvider::class);
+            $this->app->register(\ExchangeModel\Providers\ExchangeModelServiceProvider::class);
         }
 
         // Register Commands
